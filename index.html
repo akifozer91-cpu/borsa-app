@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Treader Ultra Terminal - Sinyal Modu</title>
+    <title>Treader Pro Terminal - Search Engine</title>
     <style>
-        :root { --bg: #000000; --card: #131722; --accent: #2962ff; --text: #d1d4dc; --gray: #787b86; --danger: #f23645; --success: #089981; }
+        :root { --bg: #000000; --card: #131722; --accent: #2962ff; --text: #d1d4dc; --gray: #787b86; }
         body { margin: 0; background-color: var(--bg); color: var(--text); font-family: -apple-system, system-ui, sans-serif; overflow: hidden; }
         .app-header { padding: 12px; background: var(--card); border-bottom: 1px solid #333; text-align: center; font-weight: bold; font-size: 0.9em; color: var(--accent); position: sticky; top: 0; z-index: 1001; }
         .app-content { height: calc(100vh - 110px); overflow-y: auto; -webkit-overflow-scrolling: touch; }
@@ -15,34 +15,41 @@
         .nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 0.6em; color: var(--gray); cursor: pointer; }
         .nav-item.active { color: var(--accent); font-weight: bold; }
         .nav-icon { font-size: 1.3em; margin-bottom: 2px; }
-        .section-title { padding: 8px; font-size: 0.75em; color: var(--accent); background: #1e222d; margin: 10px 0 5px 0; border-radius: 4px; font-weight: bold; }
+        .section-title { padding: 10px; font-size: 0.75em; color: var(--accent); background: #1e222d; margin: 10px 0 5px 0; border-radius: 4px; font-weight: bold; display: flex; align-items: center; gap: 5px; }
         .widget-box { background: var(--card); border-radius: 8px; margin-bottom: 15px; overflow: hidden; border: 1px solid #222; }
     </style>
 </head>
 <body>
 
-<div class="app-header">TREADER X-FINANS | SİNYAL TERMİNALİ</div>
+<div class="app-header">TREADER X-FINANS | TERMINAL PRO</div>
 
 <div class="app-content">
-    <div id="page-bist30" class="page active-page">
-        <div class="section-title">BİST 30 - ANLIK FİYATLAR (GENEL)</div>
-        <div class="widget-box" style="height: 450px;">
+    <div id="page-home" class="page active-page">
+        <div class="section-title">🔍 SEMBOL ARA (HİSSE, COIN, ENDEKS)</div>
+        <div class="widget-box" style="height: 180px;">
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-search.js" async>
+            {
+              "width": "100%",
+              "height": "100%",
+              "colorTheme": "dark",
+              "isTransparent": false,
+              "locale": "tr"
+            }
+            </script>
+        </div>
+
+        <div class="section-title">🏆 BİST 30 - KRİTİK TAKİP</div>
+        <div class="widget-box" style="height: 400px;">
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
             { "width": "100%", "height": "100%", "defaultColumn": "overview", "market": "turkey", "symbols": { "tickers": [
                 "BIST:THYAO", "BIST:AKBNK", "BIST:EREGL", "BIST:GARAN", "BIST:KCHOL", "BIST:SISE", "BIST:TUPRS", "BIST:ASELS"
             ]}, "showToolbar": false, "colorTheme": "dark", "locale": "tr" }
             </script>
         </div>
-        <div class="section-title">HİSSE BİLGİ PANELİ</div>
-        <div class="widget-box" style="height: 250px;">
-            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-profile.js" async>
-            { "width": "100%", "height": "100%", "colorTheme": "dark", "symbol": "BIST:XU100", "locale": "tr" }
-            </script>
-        </div>
     </div>
 
     <div id="page-bist100" class="page">
-        <div class="section-title">BİST 100 - TÜM LİSTE SIRALAMA</div>
+        <div class="section-title">📊 BİST 100 TÜM LİSTE</div>
         <div class="widget-box" style="height: 600px;">
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
             { "width": "100%", "height": "100%", "defaultColumn": "overview", "market": "turkey", "showToolbar": true, "colorTheme": "dark", "locale": "tr" }
@@ -51,7 +58,7 @@
     </div>
 
     <div id="page-crypto" class="page">
-        <div class="section-title">KRİPTO 100 - ANLIK FİYATLAR</div>
+        <div class="section-title">₿ KRİPTO İLK 100 (CANLI)</div>
         <div class="widget-box" style="height: 600px;">
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
             { "width": "100%", "height": "100%", "defaultColumn": "overview", "screener_type": "crypto_mcap", "market": "crypto", "showToolbar": true, "colorTheme": "dark", "locale": "tr" }
@@ -60,29 +67,23 @@
     </div>
 
     <div id="page-signals" class="page">
-        <div class="section-title">⚠️ ANİ HAREKET SİNYALLERİ (%5+ VOLATİLİTE)</div>
+        <div class="section-title">⚡ ANİ HAREKETLER VE TEKNİK ANALİZ</div>
         <div style="height: 300px; margin-bottom: 10px;">
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js" async>
             { "colorTheme": "dark", "exchange": "BIST", "width": "100%", "height": "100%", "locale": "tr" }
             </script>
         </div>
-        <div style="height: 300px; margin-bottom: 10px;">
+        <div style="height: 300px;">
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js" async>
             { "colorTheme": "dark", "exchange": "USDT", "width": "100%", "height": "100%", "locale": "tr" }
-            </script>
-        </div>
-        <div class="section-title">TEKNİK ANALİZ GÖSTERGESİ</div>
-        <div style="height: 350px;">
-            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
-            { "interval": "1h", "width": "100%", "height": "100%", "symbol": "BIST:XU100", "showIntervalTabs": true, "displayMode": "single", "locale": "tr", "colorTheme": "dark" }
             </script>
         </div>
     </div>
 </div>
 
 <div class="bottom-nav">
-    <div class="nav-item active" onclick="nav('page-bist30', this)">
-        <span class="nav-icon">💎</span><span>BİST 30</span>
+    <div class="nav-item active" onclick="nav('page-home', this)">
+        <span class="nav-icon">🏠</span><span>ANA SAYFA</span>
     </div>
     <div class="nav-item" onclick="nav('page-bist100', this)">
         <span class="nav-icon">📊</span><span>BİST 100</span>
