@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Treader Pro Clean</title>
+    <title>Binance PRO List</title>
     <style>
         /* SIFIRLAMA */
         html, body { height: 100%; margin: 0; padding: 0; background-color: #000000; font-family: -apple-system, sans-serif; overflow: hidden; }
         
-        /* FLEX YAPI */
+        /* FLEX YAPI (EKRANI DOLDURUR) */
         body { display: flex; flex-direction: column; }
 
-        /* BAŞLIK */
+        /* ÜST BAŞLIK */
         .header {
             flex: 0 0 50px; background: #131722; border-bottom: 1px solid #333;
             display: flex; align-items: center; justify-content: center;
-            color: #F0B90B; font-weight: bold; font-size: 15px;
+            color: #F0B90B; font-weight: 800; font-size: 16px; letter-spacing: 0.5px;
         }
 
-        /* İÇERİK */
+        /* ORTA ALAN (İÇERİK) */
         .content { flex: 1; position: relative; background: #000; }
 
         /* SAYFALAR */
@@ -27,14 +27,14 @@
 
         /* ALT MENÜ */
         .nav {
-            flex: 0 0 60px; background: #131722; border-top: 1px solid #333; display: flex;
+            flex: 0 0 65px; background: #131722; border-top: 1px solid #333; display: flex;
         }
         .nav-item {
             flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
-            color: #787b86; font-size: 11px; cursor: pointer;
+            color: #787b86; font-size: 11px; cursor: pointer; transition: 0.2s;
         }
         .nav-item.active { color: #F0B90B; font-weight: bold; }
-        .icon { font-size: 20px; margin-bottom: 4px; }
+        .icon { font-size: 22px; margin-bottom: 4px; }
 
         /* WIDGET ZORLAMA */
         .tradingview-widget-container { width: 100% !important; height: 100% !important; }
@@ -42,7 +42,7 @@
 </head>
 <body>
 
-    <div class="header">GLOBAL USDT BORSASI (TOP 10)</div>
+    <div class="header">BINANCE MARKET (250+)</div>
 
     <div class="content">
 
@@ -54,16 +54,36 @@
                   "width": "100%", "height": "100%",
                   "symbolsGroups": [
                     {
-                      "name": "FAVORİLER",
+                      "name": "🔥 POPÜLER",
                       "symbols": [
                         { "name": "BINANCE:BTCUSDT", "displayName": "BTC" },
                         { "name": "BINANCE:ETHUSDT", "displayName": "ETH" },
-                        { "name": "BINANCE:SOLUSDT", "displayName": "SOL" },
                         { "name": "BINANCE:BNBUSDT", "displayName": "BNB" },
+                        { "name": "BINANCE:SOLUSDT", "displayName": "SOL" },
                         { "name": "BINANCE:XRPUSDT", "displayName": "XRP" },
-                        { "name": "BINANCE:PEPEUSDT", "displayName": "PEPE" },
                         { "name": "BINANCE:DOGEUSDT", "displayName": "DOGE" },
+                        { "name": "BINANCE:ADAUSDT", "displayName": "ADA" },
                         { "name": "BINANCE:AVAXUSDT", "displayName": "AVAX" }
+                      ]
+                    },
+                    {
+                      "name": "🚀 YAPAY ZEKA (AI)",
+                      "symbols": [
+                        { "name": "BINANCE:FETUSDT", "displayName": "FET" },
+                        { "name": "BINANCE:RNDRUSDT", "displayName": "RNDR" },
+                        { "name": "BINANCE:NEARUSDT", "displayName": "NEAR" },
+                        { "name": "BINANCE:GRTUSDT", "displayName": "GRT" },
+                        { "name": "BINANCE:INJUSDT", "displayName": "INJ" }
+                      ]
+                    },
+                    {
+                      "name": "🐸 MEME COINS",
+                      "symbols": [
+                        { "name": "BINANCE:PEPEUSDT", "displayName": "PEPE" },
+                        { "name": "BINANCE:SHIBUSDT", "displayName": "SHIB" },
+                        { "name": "BINANCE:FLOKIUSDT", "displayName": "FLOKI" },
+                        { "name": "BINANCE:BONKUSDT", "displayName": "BONK" },
+                        { "name": "BINANCE:WIFUSDT", "displayName": "WIF" }
                       ]
                     }
                   ],
@@ -86,11 +106,14 @@
                   "colorTheme": "dark",
                   "locale": "tr",
                   "isTransparent": false,
+                  "sort": "market_cap_basic", 
+                  "order": "desc",
                   "query": {
                     "types": ["swap", "spot"],
                     "filter": [
+                        { "left": "exchange", "operation": "equal", "right": "BINANCE" },
                         { "left": "name", "operation": "match", "right": "USDT" },
-                        { "left": "exchange", "operation": "in_range", "right": ["BINANCE", "OKX", "BYBIT", "COINBASE", "KUCOIN", "KRAKEN", "GATEIO", "BITGET", "MEXC", "HTX"] }
+                        { "left": "market_cap_basic", "operation": "nempty" }
                     ]
                   }
                 }
@@ -118,7 +141,7 @@
             <div class="icon">⭐</div>Favoriler
         </div>
         <div class="nav-item" onclick="go('p-list', this)">
-            <div class="icon">📋</div>Temiz Liste
+            <div class="icon">💎</div>Zengin Liste
         </div>
         <div class="nav-item" onclick="go('p-sig', this)">
             <div class="icon">🚀</div>Sinyaller
