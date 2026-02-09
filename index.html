@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Binance Garanti Liste</title>
+    <title>Treader Pro Clean</title>
     <style>
         /* SIFIRLAMA */
         html, body { height: 100%; margin: 0; padding: 0; background-color: #000000; font-family: -apple-system, sans-serif; overflow: hidden; }
         
-        /* FLEX YAPI (Ekranı Doldurur) */
+        /* FLEX YAPI */
         body { display: flex; flex-direction: column; }
 
         /* BAŞLIK */
         .header {
             flex: 0 0 50px; background: #131722; border-bottom: 1px solid #333;
             display: flex; align-items: center; justify-content: center;
-            color: #F0B90B; font-weight: bold; font-size: 16px;
+            color: #F0B90B; font-weight: bold; font-size: 15px;
         }
 
         /* İÇERİK */
@@ -42,7 +42,7 @@
 </head>
 <body>
 
-    <div class="header">BINANCE MARKET</div>
+    <div class="header">GLOBAL USDT BORSASI (TOP 10)</div>
 
     <div class="content">
 
@@ -54,13 +54,16 @@
                   "width": "100%", "height": "100%",
                   "symbolsGroups": [
                     {
-                      "name": "FAVORİLERİM",
+                      "name": "FAVORİLER",
                       "symbols": [
-                        { "name": "BINANCE:BTCUSDT", "displayName": "BITCOIN" },
-                        { "name": "BINANCE:ETHUSDT", "displayName": "ETHEREUM" },
-                        { "name": "BINANCE:SOLUSDT", "displayName": "SOLANA" },
-                        { "name": "BINANCE:XRPUSDT", "displayName": "RIPPLE" },
-                        { "name": "BINANCE:PEPEUSDT", "displayName": "PEPE" }
+                        { "name": "BINANCE:BTCUSDT", "displayName": "BTC" },
+                        { "name": "BINANCE:ETHUSDT", "displayName": "ETH" },
+                        { "name": "BINANCE:SOLUSDT", "displayName": "SOL" },
+                        { "name": "BINANCE:BNBUSDT", "displayName": "BNB" },
+                        { "name": "BINANCE:XRPUSDT", "displayName": "XRP" },
+                        { "name": "BINANCE:PEPEUSDT", "displayName": "PEPE" },
+                        { "name": "BINANCE:DOGEUSDT", "displayName": "DOGE" },
+                        { "name": "BINANCE:AVAXUSDT", "displayName": "AVAX" }
                       ]
                     }
                   ],
@@ -73,27 +76,23 @@
         <div id="p-list" class="page">
             <div class="tradingview-widget-container">
                 <div class="tradingview-widget-container__widget"></div>
-                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
                 {
                   "width": "100%", "height": "100%",
-                  "symbolsGroups": [
-                    {
-                      "name": "TOP COINS (USDT)",
-                      "symbols": [
-                        { "name": "BINANCE:BTCUSDT" }, { "name": "BINANCE:ETHUSDT" }, { "name": "BINANCE:BNBUSDT" },
-                        { "name": "BINANCE:SOLUSDT" }, { "name": "BINANCE:XRPUSDT" }, { "name": "BINANCE:ADAUSDT" },
-                        { "name": "BINANCE:AVAXUSDT" }, { "name": "BINANCE:DOGEUSDT" }, { "name": "BINANCE:TRXUSDT" },
-                        { "name": "BINANCE:DOTUSDT" }, { "name": "BINANCE:MATICUSDT" }, { "name": "BINANCE:SHIBUSDT" },
-                        { "name": "BINANCE:LTCUSDT" }, { "name": "BINANCE:BCHUSDT" }, { "name": "BINANCE:LINKUSDT" },
-                        { "name": "BINANCE:XLMUSDT" }, { "name": "BINANCE:ATOMUSDT" }, { "name": "BINANCE:UNIUSDT" },
-                        { "name": "BINANCE:FILUSDT" }, { "name": "BINANCE:NEARUSDT" }, { "name": "BINANCE:APTUSDT" },
-                        { "name": "BINANCE:ARBUSDT" }, { "name": "BINANCE:RENDERUSDT" }, { "name": "BINANCE:FETUSDT" },
-                        { "name": "BINANCE:RNDRUSDT" }, { "name": "BINANCE:PEPEUSDT" }, { "name": "BINANCE:FLOKIUSDT" },
-                        { "name": "BINANCE:FTMUSDT" }, { "name": "BINANCE:INJUSDT" }, { "name": "BINANCE:OPUSDT" }
-                      ]
-                    }
-                  ],
-                  "showSymbolLogo": true, "isTransparent": false, "colorTheme": "dark", "locale": "tr"
+                  "defaultColumn": "overview",
+                  "defaultScreen": "general",
+                  "market": "crypto",
+                  "showToolbar": true,
+                  "colorTheme": "dark",
+                  "locale": "tr",
+                  "isTransparent": false,
+                  "query": {
+                    "types": ["swap", "spot"],
+                    "filter": [
+                        { "left": "name", "operation": "match", "right": "USDT" },
+                        { "left": "exchange", "operation": "in_range", "right": ["BINANCE", "OKX", "BYBIT", "COINBASE", "KUCOIN", "KRAKEN", "GATEIO", "BITGET", "MEXC", "HTX"] }
+                    ]
+                  }
                 }
                 </script>
             </div>
@@ -119,7 +118,7 @@
             <div class="icon">⭐</div>Favoriler
         </div>
         <div class="nav-item" onclick="go('p-list', this)">
-            <div class="icon">📋</div>Geniş Liste
+            <div class="icon">📋</div>Temiz Liste
         </div>
         <div class="nav-item" onclick="go('p-sig', this)">
             <div class="icon">🚀</div>Sinyaller
