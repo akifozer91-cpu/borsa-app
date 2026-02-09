@@ -3,51 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Treader Pro Terminal</title>
+    <title>Treader Crypto Terminal</title>
     <style>
-        :root { --bg: #000000; --card: #131722; --accent: #2962ff; --text: #d1d4dc; --gray: #787b86; }
+        :root { --bg: #000000; --card: #131722; --accent: #f3ba2f; --text: #d1d4dc; --gray: #787b86; }
         body { margin: 0; background-color: var(--bg); color: var(--text); font-family: -apple-system, system-ui, sans-serif; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
-        .app-header { padding: 12px; background: var(--card); border-bottom: 1px solid #333; text-align: center; font-weight: bold; font-size: 0.9em; color: var(--accent); }
+        .app-header { padding: 12px; background: var(--card); border-bottom: 1px solid #333; text-align: center; font-weight: bold; font-size: 1em; color: var(--accent); }
         .app-content { flex: 1; overflow-y: auto; padding-bottom: 70px; -webkit-overflow-scrolling: touch; }
         .page { display: none; padding: 5px; height: 100%; }
         .active-page { display: block; }
-        .bottom-nav { position: fixed; bottom: 0; width: 100%; height: 60px; background: var(--card); display: flex; border-top: 1px solid #333; z-index: 2000; }
-        .nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 0.65em; color: var(--gray); cursor: pointer; }
+        .bottom-nav { position: fixed; bottom: 0; width: 100%; height: 65px; background: var(--card); display: flex; border-top: 1px solid #333; z-index: 2000; }
+        .nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 0.7em; color: var(--gray); cursor: pointer; transition: 0.2s; }
         .nav-item.active { color: var(--accent); font-weight: bold; }
-        .nav-icon { font-size: 1.3em; margin-bottom: 2px; }
-        .widget-box { background: var(--card); border-radius: 8px; height: 95%; overflow: hidden; border: 1px solid #222; }
+        .nav-icon { font-size: 1.5em; margin-bottom: 2px; }
+        .widget-box { background: var(--card); border-radius: 8px; height: 98%; overflow: hidden; border: 1px solid #222; }
+        .section-label { padding: 8px; font-size: 0.75em; color: var(--accent); font-weight: bold; text-transform: uppercase; }
     </style>
 </head>
 <body>
 
-<div class="app-header">TREADER X-FINANS BETA PRO</div>
+<div class="app-header">₿ TREADER CRYPTO TERMINAL ₿</div>
 
 <div class="app-content">
     <div id="page-search" class="page active-page">
         <div class="widget-box">
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
             {
-              "width": "100%", "height": "100%", "symbol": "BIST:XU100", "interval": "D", "timezone": "Europe/Istanbul",
+              "width": "100%", "height": "100%", "symbol": "BINANCE:BTCUSDT", "interval": "1H", "timezone": "Europe/Istanbul",
               "theme": "dark", "style": "1", "locale": "tr", "enable_publishing": false,
-              "allow_symbol_change": true, "save_image": false, "container_id": "chart_1"
+              "allow_symbol_change": true, "details": true, "hotlist": true, "calendar": false, "container_id": "crypto_chart"
             }
             </script>
         </div>
     </div>
 
-    <div id="page-bist" class="page">
-        <div class="widget-box">
-            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
-            {
-              "width": "100%", "height": "100%", "defaultColumn": "overview",
-              "defaultScreen": "most_capitalized", "market": "turkey",
-              "showToolbar": true, "colorTheme": "dark", "locale": "tr"
-            }
-            </script>
-        </div>
-    </div>
-
-    <div id="page-crypto" class="page">
+    <div id="page-market" class="page">
         <div class="widget-box">
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
             {
@@ -60,14 +49,16 @@
     </div>
 
     <div id="page-signals" class="page">
-        <div style="height: 50%;">
-            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js" async>
-            { "colorTheme": "dark", "exchange": "BIST", "width": "100%", "height": "100%", "locale": "tr" }
-            </script>
-        </div>
-        <div style="height: 50%;">
+        <div class="section-label">🔥 EN ÇOK HAREKET EDENLER (USDT)</div>
+        <div style="height: 45%;">
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js" async>
             { "colorTheme": "dark", "exchange": "USDT", "width": "100%", "height": "100%", "locale": "tr" }
+            </script>
+        </div>
+        <div class="section-label">🛡️ TEKNİK GÖSTERGE (1 SAATLİK)</div>
+        <div style="height: 45%;">
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+            { "interval": "1h", "width": "100%", "height": "100%", "symbol": "BINANCE:BTCUSDT", "showIntervalTabs": true, "displayMode": "single", "locale": "tr", "colorTheme": "dark" }
             </script>
         </div>
     </div>
@@ -77,11 +68,8 @@
     <div class="nav-item active" onclick="nav('page-search', this)">
         <span class="nav-icon">🔍</span><span>ARAMA</span>
     </div>
-    <div class="nav-item" onclick="nav('page-bist', this)">
-        <span class="nav-icon">📊</span><span>BORSALAR</span>
-    </div>
-    <div class="nav-item" onclick="nav('page-crypto', this)">
-        <span class="nav-icon">₿</span><span>KRİPTO</span>
+    <div class="nav-item" onclick="nav('page-market', this)">
+        <span class="nav-icon">📊</span><span>PİYASA</span>
     </div>
     <div class="nav-item" onclick="nav('page-signals', this)">
         <span class="nav-icon">⚡</span><span>SİNYAL</span>
