@@ -3,74 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Treader Crypto Professional</title>
+    <title>Treader USDT Live</title>
     <style>
-        :root { --bg: #000000; --card: #131722; --accent: #f3ba2f; --text: #d1d4dc; --gray: #787b86; }
+        :root { --bg: #131722; --text: #d1d4dc; --green: #089981; --red: #f23645; }
         body { margin: 0; background-color: var(--bg); color: var(--text); font-family: -apple-system, system-ui, sans-serif; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
-        .app-header { padding: 12px; background: var(--card); border-bottom: 1px solid #333; text-align: center; font-weight: bold; font-size: 1em; color: var(--accent); }
-        .app-content { flex: 1; position: relative; }
-        .page { display: none; height: 100%; width: 100%; position: absolute; top: 0; left: 0; }
+        
+        /* Üst Başlık */
+        .header { padding: 10px; text-align: center; font-weight: bold; background: #1e222d; border-bottom: 1px solid #2a2e39; font-size: 14px; color: #f3ba2f; }
+        
+        /* İçerik Alanı */
+        .content { flex: 1; position: relative; overflow: hidden; }
+        .page { width: 100%; height: 100%; display: none; }
         .active-page { display: block; }
-        .bottom-nav { position: fixed; bottom: 0; width: 100%; height: 65px; background: var(--card); display: flex; border-top: 1px solid #333; z-index: 2000; }
-        .nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 0.7em; color: var(--gray); cursor: pointer; }
-        .nav-item.active { color: var(--accent); font-weight: bold; }
-        .nav-icon { font-size: 1.4em; margin-bottom: 2px; }
+        
+        /* Alt Menü */
+        .nav { height: 50px; background: #1e222d; display: flex; border-top: 1px solid #2a2e39; }
+        .nav-btn { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 10px; color: #787b86; cursor: pointer; }
+        .nav-btn.active { color: #f3ba2f; font-weight: bold; }
+        .nav-icon { font-size: 18px; margin-bottom: 2px; }
+
+        /* Widget Kapsayıcı */
+        .widget-full { width: 100%; height: 100%; }
     </style>
 </head>
 <body>
 
-<div class="app-header">₿ TREADER CRYPTO TERMINAL PRO ₿</div>
+<div class="header">BINANCE USDT CANLI PİYASA</div>
 
-<div class="app-content">
+<div class="content">
     
-    <div id="page-market" class="page active-page">
-        <div style="height: 100%; width: 100%;">
+    <div id="p-market" class="page active-page">
+        <div class="widget-full">
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
+            {
+              "width": "100%", "height": "100%", "symbolsGroups": [
+                {
+                  "name": "🔥 POPÜLER USDT",
+                  "symbols": [
+                    {"name": "BINANCE:BTCUSDT", "displayName": "Bitcoin"},
+                    {"name": "BINANCE:ETHUSDT", "displayName": "Ethereum"},
+                    {"name": "BINANCE:SOLUSDT", "displayName": "Solana"},
+                    {"name": "BINANCE:BNBUSDT", "displayName": "BNB"},
+                    {"name": "BINANCE:XRPUSDT", "displayName": "Ripple"},
+                    {"name": "BINANCE:DOGEUSDT", "displayName": "Dogecoin"},
+                    {"name": "BINANCE:PEPEUSDT", "displayName": "Pepe"},
+                    {"name": "BINANCE:SHIBUSDT", "displayName": "Shiba Inu"},
+                    {"name": "BINANCE:AVAXUSDT", "displayName": "Avalanche"},
+                    {"name": "BINANCE:TRXUSDT", "displayName": "Tron"},
+                    {"name": "BINANCE:ADAUSDT", "displayName": "Cardano"},
+                    {"name": "BINANCE:LINKUSDT", "displayName": "Chainlink"},
+                    {"name": "BINANCE:MATICUSDT", "displayName": "Polygon"},
+                    {"name": "BINANCE:DOTUSDT", "displayName": "Polkadot"}
+                  ]
+                }
+              ],
+              "showSymbolLogo": true, "isTransparent": false, "colorTheme": "dark", "locale": "tr"
+            }
+            </script>
+        </div>
+    </div>
+
+    <div id="p-scan" class="page">
+        <div class="widget-full">
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
             {
-              "width": "100%",
-              "height": "100%",
-              "defaultColumn": "overview",
-              "screener_type": "crypto_mcap",
-              "displayCurrency": "USD",
-              "colorTheme": "dark",
-              "locale": "tr",
-              "isTransparent": false,
-              "market": "crypto",
-              "showToolbar": true
+              "width": "100%", "height": "100%", "defaultColumn": "overview",
+              "screener_type": "crypto_mcap", "displayCurrency": "USD", "market": "crypto",
+              "colorTheme": "dark", "locale": "tr"
             }
             </script>
         </div>
     </div>
 
-    <div id="page-search" class="page">
-        <div style="height: 100%; width: 100%;">
+    <div id="p-search" class="page">
+        <div style="height: 40px;">
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-search.js" async>
-            {
-              "width": "100%",
-              "height": "100%",
-              "colorTheme": "dark",
-              "isTransparent": false,
-              "locale": "tr"
-            }
+            { "width": "100%", "height": "100%", "colorTheme": "dark", "locale": "tr", "isTransparent": true }
             </script>
         </div>
-    </div>
-
-    <div id="page-analysis" class="page">
-        <div style="height: 100%; width: 100%;">
+        <div style="height: calc(100% - 40px);">
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
             {
-              "width": "100%",
-              "height": "100%",
-              "symbol": "BINANCE:BTCUSDT",
-              "interval": "1H",
-              "timezone": "Europe/Istanbul",
-              "theme": "dark",
-              "style": "1",
-              "locale": "tr",
-              "enable_publishing": false,
-              "allow_symbol_change": true,
-              "container_id": "chart_v7"
+              "width": "100%", "height": "100%", "symbol": "BINANCE:BTCUSDT", "interval": "15",
+              "theme": "dark", "style": "1", "locale": "tr", "allow_symbol_change": true, "hide_top_toolbar": true
             }
             </script>
         </div>
@@ -78,24 +93,18 @@
 
 </div>
 
-<div class="bottom-nav">
-    <div class="nav-item active" onclick="nav('page-market', this)">
-        <span class="nav-icon">📊</span><span>PİYASA</span>
-    </div>
-    <div class="nav-item" onclick="nav('page-search', this)">
-        <span class="nav-icon">🔍</span><span>ARAMA</span>
-    </div>
-    <div class="nav-item" onclick="nav('page-analysis', this)">
-        <span class="nav-icon">📈</span><span>GRAFİK</span>
-    </div>
+<div class="nav">
+    <div class="nav-btn active" onclick="go('p-market', this)"><span class="nav-icon">⭐</span>FAVORİLER</div>
+    <div class="nav-btn" onclick="go('p-scan', this)"><span class="nav-icon">📋</span>TÜM LİSTE</div>
+    <div class="nav-btn" onclick="go('p-search', this)"><span class="nav-icon">🔍</span>ARA/GRAFİK</div>
 </div>
 
 <script>
-    function nav(pageId, element) {
-        document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
-        document.getElementById(pageId).classList.add('active-page');
-        document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
-        element.classList.add('active');
+    function go(id, btn) {
+        document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+        document.getElementById(id).style.display = 'block';
+        document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
     }
 </script>
 
