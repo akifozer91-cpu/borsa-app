@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Binance Clean List</title>
+    <title>Binance Clean Pro</title>
     <style>
         /* SIFIRLAMA */
         html, body { height: 100%; margin: 0; padding: 0; background-color: #000000; font-family: -apple-system, sans-serif; overflow: hidden; }
         
-        /* FLEX YAPI (EKRANI DOLDURUR) */
+        /* FLEX YAPI */
         body { display: flex; flex-direction: column; }
 
         /* ÜST BAŞLIK */
@@ -18,7 +18,7 @@
             color: #F0B90B; font-weight: 800; font-size: 16px; letter-spacing: 0.5px;
         }
 
-        /* ORTA ALAN (İÇERİK) */
+        /* İÇERİK */
         .content { flex: 1; position: relative; background: #000; }
 
         /* SAYFALAR */
@@ -42,7 +42,7 @@
 </head>
 <body>
 
-    <div class="header">BINANCE PRO LİTE</div>
+    <div class="header">BINANCE SADE LİSTE</div>
 
     <div class="content">
 
@@ -54,36 +54,14 @@
                   "width": "100%", "height": "100%",
                   "symbolsGroups": [
                     {
-                      "name": "🔥 POPÜLER",
+                      "name": "🔥 VİTRİN",
                       "symbols": [
                         { "name": "BINANCE:BTCUSDT", "displayName": "BTC" },
                         { "name": "BINANCE:ETHUSDT", "displayName": "ETH" },
-                        { "name": "BINANCE:BNBUSDT", "displayName": "BNB" },
                         { "name": "BINANCE:SOLUSDT", "displayName": "SOL" },
-                        { "name": "BINANCE:XRPUSDT", "displayName": "XRP" },
-                        { "name": "BINANCE:DOGEUSDT", "displayName": "DOGE" },
-                        { "name": "BINANCE:ADAUSDT", "displayName": "ADA" },
-                        { "name": "BINANCE:AVAXUSDT", "displayName": "AVAX" }
-                      ]
-                    },
-                    {
-                      "name": "🚀 YAPAY ZEKA (AI)",
-                      "symbols": [
-                        { "name": "BINANCE:FETUSDT", "displayName": "FET" },
-                        { "name": "BINANCE:RNDRUSDT", "displayName": "RNDR" },
-                        { "name": "BINANCE:NEARUSDT", "displayName": "NEAR" },
-                        { "name": "BINANCE:GRTUSDT", "displayName": "GRT" },
-                        { "name": "BINANCE:INJUSDT", "displayName": "INJ" }
-                      ]
-                    },
-                    {
-                      "name": "🐸 MEME COINS",
-                      "symbols": [
+                        { "name": "BINANCE:BNBUSDT", "displayName": "BNB" },
                         { "name": "BINANCE:PEPEUSDT", "displayName": "PEPE" },
-                        { "name": "BINANCE:SHIBUSDT", "displayName": "SHIB" },
-                        { "name": "BINANCE:FLOKIUSDT", "displayName": "FLOKI" },
-                        { "name": "BINANCE:BONKUSDT", "displayName": "BONK" },
-                        { "name": "BINANCE:WIFUSDT", "displayName": "WIF" }
+                        { "name": "BINANCE:XRPUSDT", "displayName": "XRP" }
                       ]
                     }
                   ],
@@ -96,32 +74,64 @@
         <div id="p-list" class="page">
             <div class="tradingview-widget-container">
                 <div class="tradingview-widget-container__widget"></div>
-                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
                 {
                   "width": "100%", "height": "100%",
-                  "defaultColumn": "overview", 
-                  "market": "crypto",
-                  "showToolbar": true,
-                  "colorTheme": "dark",
-                  "locale": "tr",
-                  "isTransparent": false,
-                  "sort": "market_cap_basic", 
-                  "order": "desc",
-                  "columns": [
-                    "name",
-                    "close",
-                    "change",
-                    "volume",
-                    "Recommend.All"
+                  "symbolsGroups": [
+                    {
+                      "name": "💎 MARKET DEVLERİ",
+                      "symbols": [
+                        { "name": "BINANCE:BTCUSDT" }, { "name": "BINANCE:ETHUSDT" }, { "name": "BINANCE:BNBUSDT" },
+                        { "name": "BINANCE:SOLUSDT" }, { "name": "BINANCE:XRPUSDT" }, { "name": "BINANCE:ADAUSDT" },
+                        { "name": "BINANCE:AVAXUSDT" }, { "name": "BINANCE:DOGEUSDT" }, { "name": "BINANCE:TRXUSDT" },
+                        { "name": "BINANCE:DOTUSDT" }, { "name": "BINANCE:MATICUSDT" }, { "name": "BINANCE:SHIBUSDT" },
+                        { "name": "BINANCE:LTCUSDT" }, { "name": "BINANCE:LINKUSDT" }, { "name": "BINANCE:BCHUSDT" },
+                        { "name": "BINANCE:XLMUSDT" }, { "name": "BINANCE:ATOMUSDT" }, { "name": "BINANCE:UNIUSDT" },
+                        { "name": "BINANCE:NEARUSDT" }, { "name": "BINANCE:APTUSDT" }, { "name": "BINANCE:ICPUSDT" },
+                        { "name": "BINANCE:FILUSDT" }, { "name": "BINANCE:HBARUSDT" }, { "name": "BINANCE:VETUSDT" },
+                        { "name": "BINANCE:QNTUSDT" }, { "name": "BINANCE:AAVEUSDT" }, { "name": "BINANCE:EGLDUSDT" }
+                      ]
+                    },
+                    {
+                      "name": "🚀 YAPAY ZEKA & WEB3",
+                      "symbols": [
+                        { "name": "BINANCE:FETUSDT" }, { "name": "BINANCE:RNDRUSDT" }, { "name": "BINANCE:GRTUSDT" },
+                        { "name": "BINANCE:INJUSDT" }, { "name": "BINANCE:AGIXUSDT" }, { "name": "BINANCE:OCEANUSDT" },
+                        { "name": "BINANCE:ARUSDT" }, { "name": "BINANCE:THETAUSDT" }, { "name": "BINANCE:SANDUSDT" },
+                        { "name": "BINANCE:MANAUSDT" }, { "name": "BINANCE:AXSUSDT" }, { "name": "BINANCE:GALAUSDT" },
+                        { "name": "BINANCE:ENJUSDT" }, { "name": "BINANCE:CHZUSDT" }, { "name": "BINANCE:STXUSDT" }
+                      ]
+                    },
+                    {
+                      "name": "🐸 MEME & TRENDLER",
+                      "symbols": [
+                        { "name": "BINANCE:PEPEUSDT" }, { "name": "BINANCE:FLOKIUSDT" }, { "name": "BINANCE:BONKUSDT" },
+                        { "name": "BINANCE:WIFUSDT" }, { "name": "BINANCE:MEMEUSDT" }, { "name": "BINANCE:ORDIUSDT" },
+                        { "name": "BINANCE:SATSUSDT" }, { "name": "BINANCE:BOMEUSDT" }, { "name": "BINANCE:PEOPLEUSDT" }
+                      ]
+                    },
+                    {
+                      "name": "⚡ KATMAN 2 (LAYER 2)",
+                      "symbols": [
+                        { "name": "BINANCE:ARBUSDT" }, { "name": "BINANCE:OPUSDT" }, { "name": "BINANCE:LDOUSDT" },
+                        { "name": "BINANCE:IMXUSDT" }, { "name": "BINANCE:MNTUSDT" }, { "name": "BINANCE:STRKUSDT" },
+                        { "name": "BINANCE:MANTAUSDT" }, { "name": "BINANCE:TIAUSDT" }, { "name": "BINANCE:SEIUSDT" },
+                        { "name": "BINANCE:SUIUSDT" }, { "name": "BINANCE:DYMUSDT" }, { "name": "BINANCE:ALTUSDT" }
+                      ]
+                    },
+                    {
+                      "name": "🏦 DEFI & DİĞERLERİ",
+                      "symbols": [
+                         { "name": "BINANCE:MKRUSDT" }, { "name": "BINANCE:SNXUSDT" }, { "name": "BINANCE:RUNEUSDT" },
+                         { "name": "BINANCE:CAKEUSDT" }, { "name": "BINANCE:CRVUSDT" }, { "name": "BINANCE:COMPUSDT" },
+                         { "name": "BINANCE:1INCHUSDT" }, { "name": "BINANCE:DYDXUSDT" }, { "name": "BINANCE:SUSHIUSDT" },
+                         { "name": "BINANCE:EOSUSDT" }, { "name": "BINANCE:XTZUSDT" }, { "name": "BINANCE:KAVAUSDT" },
+                         { "name": "BINANCE:NEOUSDT" }, { "name": "BINANCE:IOTAUSDT" }, { "name": "BINANCE:KLAYUSDT" },
+                         { "name": "BINANCE:ZILUSDT" }, { "name": "BINANCE:JASMYUSDT" }, { "name": "BINANCE:LUNCUSDT" }
+                      ]
+                    }
                   ],
-                  "query": {
-                    "types": ["swap", "spot"],
-                    "filter": [
-                        { "left": "exchange", "operation": "equal", "right": "BINANCE" },
-                        { "left": "name", "operation": "match", "right": "USDT" },
-                        { "left": "market_cap_basic", "operation": "nempty" }
-                    ]
-                  }
+                  "showSymbolLogo": true, "isTransparent": false, "colorTheme": "dark", "locale": "tr"
                 }
                 </script>
             </div>
