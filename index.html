@@ -3,55 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval'; script-src * 'unsafe-inline' 'unsafe-eval';">
-    <title>Binance Terminal</title>
+    <title>Binance Garanti Liste</title>
     <style>
         /* SIFIRLAMA */
-        html, body { height: 100%; margin: 0; padding: 0; background-color: #000000; font-family: sans-serif; overflow: hidden; }
+        html, body { height: 100%; margin: 0; padding: 0; background-color: #000000; font-family: -apple-system, sans-serif; overflow: hidden; }
         
-        /* ANA İSKELET (FLEXBOX) - EKRANI 3'E BÖLER */
+        /* FLEX YAPI (Ekranı Doldurur) */
         body { display: flex; flex-direction: column; }
 
-        /* 1. BAŞLIK (SABİT) */
+        /* BAŞLIK */
         .header {
-            flex: 0 0 50px; /* Yükseklik 50px */
-            background: #131722; border-bottom: 1px solid #333;
+            flex: 0 0 50px; background: #131722; border-bottom: 1px solid #333;
             display: flex; align-items: center; justify-content: center;
             color: #F0B90B; font-weight: bold; font-size: 16px;
         }
 
-        /* 2. İÇERİK ALANI (ESNEK - KALAN TÜM YERİ KAPLAR) */
-        .content {
-            flex: 1; /* Sihirli kod: Kalan tüm boşluğu doldur */
-            position: relative;
-            background: #000;
-        }
+        /* İÇERİK */
+        .content { flex: 1; position: relative; background: #000; }
 
-        /* 3. ALT MENÜ (SABİT) */
+        /* SAYFALAR */
+        .page { width: 100%; height: 100%; display: none; }
+        .active-page { display: block; }
+
+        /* ALT MENÜ */
         .nav {
-            flex: 0 0 60px; /* Yükseklik 60px */
-            background: #131722; border-top: 1px solid #333;
-            display: flex;
+            flex: 0 0 60px; background: #131722; border-top: 1px solid #333; display: flex;
         }
         .nav-item {
             flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
-            color: #787b86; font-size: 10px; cursor: pointer;
+            color: #787b86; font-size: 11px; cursor: pointer;
         }
         .nav-item.active { color: #F0B90B; font-weight: bold; }
         .icon { font-size: 20px; margin-bottom: 4px; }
 
-        /* SAYFA GİZLEME/GÖSTERME */
-        .page { width: 100%; height: 100%; display: none; }
-        .active-page { display: block; }
-
-        /* TRADINGVIEW KONTEYNER AYARI (ÇOK ÖNEMLİ) */
+        /* WIDGET ZORLAMA */
         .tradingview-widget-container { width: 100% !important; height: 100% !important; }
-        .tradingview-widget-container__widget { width: 100% !important; height: 100% !important; }
     </style>
 </head>
 <body>
 
-    <div class="header">BINANCE PRO</div>
+    <div class="header">BINANCE MARKET</div>
 
     <div class="content">
 
@@ -63,16 +54,13 @@
                   "width": "100%", "height": "100%",
                   "symbolsGroups": [
                     {
-                      "name": "FAVORİLER",
+                      "name": "FAVORİLERİM",
                       "symbols": [
-                        { "name": "BINANCE:BTCUSDT", "displayName": "BTC" },
-                        { "name": "BINANCE:ETHUSDT", "displayName": "ETH" },
-                        { "name": "BINANCE:BNBUSDT", "displayName": "BNB" },
-                        { "name": "BINANCE:SOLUSDT", "displayName": "SOL" },
-                        { "name": "BINANCE:XRPUSDT", "displayName": "XRP" },
-                        { "name": "BINANCE:DOGEUSDT", "displayName": "DOGE" },
-                        { "name": "BINANCE:PEPEUSDT", "displayName": "PEPE" },
-                        { "name": "BINANCE:SHIBUSDT", "displayName": "SHIB" }
+                        { "name": "BINANCE:BTCUSDT", "displayName": "BITCOIN" },
+                        { "name": "BINANCE:ETHUSDT", "displayName": "ETHEREUM" },
+                        { "name": "BINANCE:SOLUSDT", "displayName": "SOLANA" },
+                        { "name": "BINANCE:XRPUSDT", "displayName": "RIPPLE" },
+                        { "name": "BINANCE:PEPEUSDT", "displayName": "PEPE" }
                       ]
                     }
                   ],
@@ -85,16 +73,27 @@
         <div id="p-list" class="page">
             <div class="tradingview-widget-container">
                 <div class="tradingview-widget-container__widget"></div>
-                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
                 {
                   "width": "100%", "height": "100%",
-                  "defaultColumn": "overview",
-                  "defaultScreen": "general",
-                  "market": "crypto",
-                  "showToolbar": true,
-                  "colorTheme": "dark",
-                  "locale": "tr",
-                  "isTransparent": false
+                  "symbolsGroups": [
+                    {
+                      "name": "TOP COINS (USDT)",
+                      "symbols": [
+                        { "name": "BINANCE:BTCUSDT" }, { "name": "BINANCE:ETHUSDT" }, { "name": "BINANCE:BNBUSDT" },
+                        { "name": "BINANCE:SOLUSDT" }, { "name": "BINANCE:XRPUSDT" }, { "name": "BINANCE:ADAUSDT" },
+                        { "name": "BINANCE:AVAXUSDT" }, { "name": "BINANCE:DOGEUSDT" }, { "name": "BINANCE:TRXUSDT" },
+                        { "name": "BINANCE:DOTUSDT" }, { "name": "BINANCE:MATICUSDT" }, { "name": "BINANCE:SHIBUSDT" },
+                        { "name": "BINANCE:LTCUSDT" }, { "name": "BINANCE:BCHUSDT" }, { "name": "BINANCE:LINKUSDT" },
+                        { "name": "BINANCE:XLMUSDT" }, { "name": "BINANCE:ATOMUSDT" }, { "name": "BINANCE:UNIUSDT" },
+                        { "name": "BINANCE:FILUSDT" }, { "name": "BINANCE:NEARUSDT" }, { "name": "BINANCE:APTUSDT" },
+                        { "name": "BINANCE:ARBUSDT" }, { "name": "BINANCE:RENDERUSDT" }, { "name": "BINANCE:FETUSDT" },
+                        { "name": "BINANCE:RNDRUSDT" }, { "name": "BINANCE:PEPEUSDT" }, { "name": "BINANCE:FLOKIUSDT" },
+                        { "name": "BINANCE:FTMUSDT" }, { "name": "BINANCE:INJUSDT" }, { "name": "BINANCE:OPUSDT" }
+                      ]
+                    }
+                  ],
+                  "showSymbolLogo": true, "isTransparent": false, "colorTheme": "dark", "locale": "tr"
                 }
                 </script>
             </div>
@@ -120,7 +119,7 @@
             <div class="icon">⭐</div>Favoriler
         </div>
         <div class="nav-item" onclick="go('p-list', this)">
-            <div class="icon">📋</div>Tüm Liste
+            <div class="icon">📋</div>Geniş Liste
         </div>
         <div class="nav-item" onclick="go('p-sig', this)">
             <div class="icon">🚀</div>Sinyaller
@@ -129,11 +128,8 @@
 
     <script>
         function go(id, btn) {
-            // Sayfaları değiştir
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
             document.getElementById(id).classList.add('active-page');
-            
-            // Buton rengini değiştir
             document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
             btn.classList.add('active');
         }
