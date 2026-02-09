@@ -3,75 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Treader Ultra Terminal</title>
+    <title>Treader Ultra Terminal - Sinyal Modu</title>
     <style>
-        :root { --bg: #000000; --card: #131722; --accent: #2962ff; --text: #d1d4dc; --gray: #787b86; }
+        :root { --bg: #000000; --card: #131722; --accent: #2962ff; --text: #d1d4dc; --gray: #787b86; --danger: #f23645; --success: #089981; }
         body { margin: 0; background-color: var(--bg); color: var(--text); font-family: -apple-system, system-ui, sans-serif; overflow: hidden; }
-        .app-header { padding: 12px; background: var(--card); border-bottom: 1px solid #333; text-align: center; font-weight: bold; font-size: 1em; color: var(--accent); position: sticky; top: 0; z-index: 1001; }
+        .app-header { padding: 12px; background: var(--card); border-bottom: 1px solid #333; text-align: center; font-weight: bold; font-size: 0.9em; color: var(--accent); position: sticky; top: 0; z-index: 1001; }
         .app-content { height: calc(100vh - 110px); overflow-y: auto; -webkit-overflow-scrolling: touch; }
-        .page { display: none; padding: 5px; height: 100%; }
+        .page { display: none; padding: 5px; }
         .active-page { display: block; }
         .bottom-nav { position: fixed; bottom: 0; width: 100%; height: 60px; background: var(--card); display: flex; border-top: 1px solid #333; z-index: 1000; }
-        .nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 0.65em; color: var(--gray); cursor: pointer; }
+        .nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 0.6em; color: var(--gray); cursor: pointer; }
         .nav-item.active { color: var(--accent); font-weight: bold; }
-        .nav-icon { font-size: 1.4em; margin-bottom: 2px; }
-        .widget-container { height: 100%; width: 100%; overflow: hidden; border-radius: 8px; }
+        .nav-icon { font-size: 1.3em; margin-bottom: 2px; }
+        .section-title { padding: 8px; font-size: 0.75em; color: var(--accent); background: #1e222d; margin: 10px 0 5px 0; border-radius: 4px; font-weight: bold; }
+        .widget-box { background: var(--card); border-radius: 8px; margin-bottom: 15px; overflow: hidden; border: 1px solid #222; }
     </style>
 </head>
 <body>
 
-<div class="app-header">TREADER X-FINANS BETA PRO</div>
+<div class="app-header">TREADER X-FINANS | SİNYAL TERMİNALİ</div>
 
 <div class="app-content">
     <div id="page-bist30" class="page active-page">
-        <div class="widget-container">
+        <div class="section-title">BİST 30 - ANLIK FİYATLAR (GENEL)</div>
+        <div class="widget-box" style="height: 450px;">
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
-            {
-              "width": "100%", "height": "100%", "defaultColumn": "overview",
-              "market": "turkey", "symbols": { "tickers": [
-                "BIST:THYAO", "BIST:AKBNK", "BIST:EREGL", "BIST:GARAN", "BIST:KCHOL",
-                "BIST:SISE", "BIST:TUPRS", "BIST:ASELS", "BIST:ISCTR", "BIST:YKBNK",
-                "BIST:SAHOL", "BIST:BIMAS", "BIST:SASA", "BIST:HEKTS", "BIST:GUBRF"
-              ]},
-              "showToolbar": true, "colorTheme": "dark", "locale": "tr"
-            }
+            { "width": "100%", "height": "100%", "defaultColumn": "overview", "market": "turkey", "symbols": { "tickers": [
+                "BIST:THYAO", "BIST:AKBNK", "BIST:EREGL", "BIST:GARAN", "BIST:KCHOL", "BIST:SISE", "BIST:TUPRS", "BIST:ASELS"
+            ]}, "showToolbar": false, "colorTheme": "dark", "locale": "tr" }
+            </script>
+        </div>
+        <div class="section-title">HİSSE BİLGİ PANELİ</div>
+        <div class="widget-box" style="height: 250px;">
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-profile.js" async>
+            { "width": "100%", "height": "100%", "colorTheme": "dark", "symbol": "BIST:XU100", "locale": "tr" }
             </script>
         </div>
     </div>
 
     <div id="page-bist100" class="page">
-        <div class="widget-container">
+        <div class="section-title">BİST 100 - TÜM LİSTE SIRALAMA</div>
+        <div class="widget-box" style="height: 600px;">
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
-            {
-              "width": "100%", "height": "100%", "defaultColumn": "overview",
-              "defaultScreen": "most_capitalized", "market": "turkey",
-              "showToolbar": true, "colorTheme": "dark", "locale": "tr"
-            }
+            { "width": "100%", "height": "100%", "defaultColumn": "overview", "market": "turkey", "showToolbar": true, "colorTheme": "dark", "locale": "tr" }
             </script>
         </div>
     </div>
 
     <div id="page-crypto" class="page">
-        <div class="widget-container">
+        <div class="section-title">KRİPTO 100 - ANLIK FİYATLAR</div>
+        <div class="widget-box" style="height: 600px;">
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
-            {
-              "width": "100%", "height": "100%", "defaultColumn": "overview",
-              "screener_type": "crypto_mcap", "displayCurrency": "USD", "market": "crypto",
-              "showToolbar": true, "colorTheme": "dark", "locale": "tr"
-            }
+            { "width": "100%", "height": "100%", "defaultColumn": "overview", "screener_type": "crypto_mcap", "market": "crypto", "showToolbar": true, "colorTheme": "dark", "locale": "tr" }
             </script>
         </div>
     </div>
 
-    <div id="page-analysis" class="page">
-        <div style="height: 50%;">
+    <div id="page-signals" class="page">
+        <div class="section-title">⚠️ ANİ HAREKET SİNYALLERİ (%5+ VOLATİLİTE)</div>
+        <div style="height: 300px; margin-bottom: 10px;">
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js" async>
             { "colorTheme": "dark", "exchange": "BIST", "width": "100%", "height": "100%", "locale": "tr" }
             </script>
         </div>
-        <div style="height: 50%; border-top: 1px solid #333;">
+        <div style="height: 300px; margin-bottom: 10px;">
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js" async>
             { "colorTheme": "dark", "exchange": "USDT", "width": "100%", "height": "100%", "locale": "tr" }
+            </script>
+        </div>
+        <div class="section-title">TEKNİK ANALİZ GÖSTERGESİ</div>
+        <div style="height: 350px;">
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+            { "interval": "1h", "width": "100%", "height": "100%", "symbol": "BIST:XU100", "showIntervalTabs": true, "displayMode": "single", "locale": "tr", "colorTheme": "dark" }
             </script>
         </div>
     </div>
@@ -87,8 +90,8 @@
     <div class="nav-item" onclick="nav('page-crypto', this)">
         <span class="nav-icon">₿</span><span>KRİPTO</span>
     </div>
-    <div class="nav-item" onclick="nav('page-analysis', this)">
-        <span class="nav-icon">🔥</span><span>TRENDLER</span>
+    <div class="nav-item" onclick="nav('page-signals', this)">
+        <span class="nav-icon">⚡</span><span>SİNYALLER</span>
     </div>
 </div>
 
@@ -98,6 +101,7 @@
         document.getElementById(pageId).classList.add('active-page');
         document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
         element.classList.add('active');
+        document.querySelector('.app-content').scrollTo(0,0);
     }
 </script>
 
