@@ -3,92 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Treader Professional Terminal</title>
+    <title>Treader Ultra Terminal</title>
     <style>
         body { margin: 0; background-color: #000000; color: #d1d4dc; font-family: -apple-system, sans-serif; overflow-x: hidden; }
         .nav-header { position: sticky; top: 0; z-index: 1000; background: #131722; border-bottom: 2px solid #2962ff; }
         .tabs { display: flex; text-align: center; }
-        .tab-btn { flex: 1; padding: 12px; cursor: pointer; font-size: 0.8em; font-weight: bold; color: #787b86; border-bottom: 2px solid transparent; }
+        .tab-btn { flex: 1; padding: 12px; cursor: pointer; font-size: 0.75em; font-weight: bold; color: #787b86; border-bottom: 2px solid transparent; text-transform: uppercase; }
         .tab-btn.active { color: #2962ff; border-bottom: 2px solid #2962ff; background: #1e222d; }
-        .content-area { display: none; padding-bottom: 20px; }
+        .content-area { display: none; }
         .active-area { display: block; }
-        .section-title { padding: 10px; background: #1e222d; margin: 10px 0; font-size: 0.85em; font-weight: bold; color: #2962ff; border-left: 4px solid #2962ff; }
-        .widget-wrapper { width: 100%; background: #131722; overflow: hidden; }
-        /* Linkleri ve yönlendirmeleri kısıtlamak için pointer müdahalesi (opsiyonel) */
-        .no-click-overlay { position: relative; }
+        .widget-label { padding: 8px 12px; background: #1e222d; font-size: 0.75em; font-weight: bold; color: #2962ff; border-left: 3px solid #2962ff; margin-top: 5px; }
+        .container { height: 400px; width: 100%; border-bottom: 1px solid #333; }
+        .hotlist-container { height: 350px; width: 100%; }
     </style>
 </head>
 <body>
 
 <div class="nav-header">
     <div class="tabs">
-        <div class="tab-btn active" onclick="showTab(event, 'bist-tab')">BİST PERFORMANS</div>
-        <div class="tab-btn" onclick="showTab(event, 'crypto-tab')">KRİPTO PERFORMANS</div>
+        <div class="tab-btn active" onclick="showTab(event, 'bist30')">BİST 30</div>
+        <div class="tab-btn" onclick="showTab(event, 'bist100')">BİST 100</div>
+        <div class="tab-btn" onclick="showTab(event, 'crypto')">KRİPTO 100</div>
     </div>
 </div>
 
-<div id="bist-tab" class="content-area active-area">
-    <div class="section-title">GÜNLÜK PERFORMANS VE SIRALAMA (BİST)</div>
-    <div class="widget-wrapper" style="height: 450px;">
+<div id="bist30" class="content-area active-area">
+    <div class="widget-label">BİST 30 - CANLI FİYAT VE GENEL BAKIŞ</div>
+    <div class="container">
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+        {
+          "colorTheme": "dark", "width": "100%", "height": "100%", "showChart": true, "locale": "tr",
+          "tabs": [{
+            "title": "BİST 30",
+            "symbols": [
+              {"s": "BIST:THYAO"}, {"s": "BIST:AKBNK"}, {"s": "BIST:EREGL"}, {"s": "BIST:GARAN"},
+              {"s": "BIST:KCHOL"}, {"s": "BIST:SISE"}, {"s": "BIST:TUPRS"}, {"s": "BIST:ASELS"},
+              {"s": "BIST:ISCTR"}, {"s": "BIST:BIMAS"}, {"s": "BIST:SAHOL"}, {"s": "BIST:YKBNK"}
+            ]
+          }]
+        }
+        </script>
+    </div>
+    <div class="widget-label">GÜNLÜK EN ÇOK ARTAN / AZALAN (BİST)</div>
+    <div class="hotlist-container">
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js" async>
+        { "colorTheme": "dark", "exchange": "BIST", "width": "100%", "height": "100%", "locale": "tr" }
+        </script>
+    </div>
+</div>
+
+<div id="bist100" class="content-area">
+    <div class="widget-label">BİST 100 - TÜM LİSTE VE SIRALAMA</div>
+    <div class="container" style="height: 600px;">
         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
         {
-          "width": "100%", "height": "100%", "defaultColumn": "performance",
+          "width": "100%", "height": "100%", "defaultColumn": "overview",
           "defaultScreen": "most_capitalized", "market": "turkey",
-          "showToolbar": true, "colorTheme": "dark", "locale": "tr", "isTransparent": false
-        }
-        </script>
-    </div>
-
-    <div class="section-title">EN ÇOK YÜKSELEN VE DÜŞENLER (BİST 7)</div>
-    <div class="widget-wrapper" style="height: 400px;">
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js" async>
-        {
-          "colorTheme": "dark", "dateRange": "12M", "exchange": "BIST", "showChart": true,
-          "locale": "tr", "width": "100%", "height": "100%", "largeChartUrl": "", "isTransparent": false
-        }
-        </script>
-    </div>
-
-    <div class="section-title">HİSSE DETAYLI BİLGİ (SEÇİLİ SEMBOL)</div>
-    <div class="widget-wrapper" style="height: 400px;">
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-profile.js" async>
-        {
-          "width": "100%", "height": "100%", "colorTheme": "dark", "isTransparent": false,
-          "symbol": "BIST:XU100", "locale": "tr"
+          "showToolbar": true, "colorTheme": "dark", "locale": "tr"
         }
         </script>
     </div>
 </div>
 
-<div id="crypto-tab" class="content-area">
-    <div class="section-title">GÜNLÜK PERFORMANS VE SIRALAMA (KRİPTO)</div>
-    <div class="widget-wrapper" style="height: 450px;">
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
+<div id="crypto" class="content-area">
+    <div class="widget-label">KRİPTO İLK 100 - CANLI VERİ</div>
+    <div class="container" style="height: 550px;">
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
         {
-          "width": "100%", "height": "100%", "defaultColumn": "performance",
-          "screener_type": "crypto_mcap", "displayCurrency": "USD", "market": "crypto",
-          "showToolbar": true, "colorTheme": "dark", "locale": "tr", "isTransparent": false
+          "colorTheme": "dark", "width": "100%", "height": "100%", "showChart": true, "locale": "tr",
+          "tabs": [{
+            "title": "Kripto İlk 100",
+            "symbols": [
+              {"s": "BINANCE:BTCUSDT"}, {"s": "BINANCE:ETHUSDT"}, {"s": "BINANCE:SOLUSDT"},
+              {"s": "BINANCE:BNBUSDT"}, {"s": "BINANCE:XRPUSDT"}, {"s": "BINANCE:ADAUSDT"},
+              {"s": "BINANCE:AVAXUSDT"}, {"s": "BINANCE:DOGEUSDT"}, {"s": "BINANCE:DOTUSDT"}
+            ]
+          }]
         }
         </script>
     </div>
-
-    <div class="section-title">EN ÇOK YÜKSELEN VE DÜŞENLER (KRİPTO 7)</div>
-    <div class="widget-wrapper" style="height: 400px;">
+    <div class="widget-label">KRİPTO EN ÇOK HAREKET EDENLER</div>
+    <div class="hotlist-container">
         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js" async>
-        {
-          "colorTheme": "dark", "dateRange": "12M", "exchange": "USDT", "showChart": true,
-          "locale": "tr", "width": "100%", "height": "100%", "largeChartUrl": "", "isTransparent": false
-        }
-        </script>
-    </div>
-
-    <div class="section-title">COIN DETAYLI BİLGİ (SEÇİLİ SEMBOL)</div>
-    <div class="widget-wrapper" style="height: 400px;">
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-profile.js" async>
-        {
-          "width": "100%", "height": "100%", "colorTheme": "dark", "isTransparent": false,
-          "symbol": "BINANCE:BTCUSDT", "locale": "tr"
-        }
+        { "colorTheme": "dark", "exchange": "USDT", "width": "100%", "height": "100%", "locale": "tr" }
         </script>
     </div>
 </div>
