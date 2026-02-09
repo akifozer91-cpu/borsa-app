@@ -3,115 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Binance Top 200</title>
+    <title>Binance USDT List</title>
     <style>
-        :root { --bg: #101014; --card: #1b1b1f; --yellow: #F0B90B; --text: #EAECEF; --green: #0ECB81; --red: #F6465D; }
-        body { margin: 0; background-color: var(--bg); color: var(--text); font-family: -apple-system, system-ui, sans-serif; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
-        
-        /* Başlık */
-        .app-header { padding: 12px; background: var(--card); border-bottom: 1px solid #2b2f36; text-align: center; font-weight: 800; font-size: 15px; color: var(--yellow); letter-spacing: 0.5px; }
+        /* SIFIRLAMA VE TEMEL AYARLAR */
+        * { box-sizing: border-box; }
+        body { margin: 0; padding: 0; background-color: #000000; font-family: -apple-system, sans-serif; overflow: hidden; height: 100vh; width: 100vw; }
 
-        /* İçerik */
-        .app-content { flex: 1; position: relative; overflow: hidden; }
-        .page { width: 100%; height: 100%; display: none; }
+        /* ALT MENÜ (SABİT) */
+        .bottom-nav {
+            position: fixed; bottom: 0; left: 0; right: 0;
+            height: 60px; background: #131722;
+            display: flex; border-top: 1px solid #333; z-index: 9999;
+        }
+        .nav-item {
+            flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            font-size: 11px; color: #787b86; cursor: pointer;
+        }
+        .nav-item.active { color: #f3ba2f; font-weight: bold; }
+        .nav-icon { font-size: 20px; margin-bottom: 3px; }
+
+        /* SAYFA YAPISI (KESİN POZİSYONLAMA) */
+        /* Bu ayar, listenin ekrana sığmama veya 0px olma ihtimalini yok eder */
+        .page {
+            position: absolute; top: 0; left: 0; right: 0; bottom: 60px; /* Alttan 60px boşluk bırak (menü için) */
+            display: none; background: #000;
+        }
         .active-page { display: block; }
 
-        /* Alt Menü */
-        .bottom-nav { position: fixed; bottom: 0; width: 100%; height: 60px; background: var(--card); display: flex; border-top: 1px solid #2b2f36; z-index: 999; }
-        .nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 10px; color: #848e9c; cursor: pointer; transition: 0.2s; }
-        .nav-item.active { color: var(--yellow); font-weight: bold; }
-        .nav-icon { font-size: 18px; margin-bottom: 4px; }
-
-        /* Widget Kutusu */
-        .widget-box { width: 100%; height: 100%; }
+        /* WIDGET KAPLAYICI */
+        .widget-container { width: 100%; height: 100%; }
     </style>
 </head>
 <body>
 
-<div class="app-header">BINANCE MARKET CAP 200</div>
-
-<div class="app-content">
-    
-    <div id="page-fav" class="page active-page">
-        <div class="widget-box">
-            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
+<div id="page-fav" class="page active-page">
+    <div class="widget-container">
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
+        {
+          "width": "100%", "height": "100%",
+          "symbolsGroups": [
             {
-              "width": "100%", "height": "100%",
-              "symbolsGroups": [
-                {
-                  "name": "FAVORİLER",
-                  "symbols": [
-                    { "name": "BINANCE:BTCUSDT", "displayName": "BTC" },
-                    { "name": "BINANCE:ETHUSDT", "displayName": "ETH" },
-                    { "name": "BINANCE:BNBUSDT", "displayName": "BNB" },
-                    { "name": "BINANCE:SOLUSDT", "displayName": "SOL" },
-                    { "name": "BINANCE:XRPUSDT", "displayName": "XRP" },
-                    { "name": "BINANCE:DOGEUSDT", "displayName": "DOGE" },
-                    { "name": "BINANCE:ADAUSDT", "displayName": "ADA" },
-                    { "name": "BINANCE:AVAXUSDT", "displayName": "AVAX" },
-                    { "name": "BINANCE:SHIBUSDT", "displayName": "SHIB" },
-                    { "name": "BINANCE:TRXUSDT", "displayName": "TRX" },
-                    { "name": "BINANCE:DOTUSDT", "displayName": "DOT" },
-                    { "name": "BINANCE:MATICUSDT", "displayName": "MATIC" }
-                  ]
-                }
-              ],
-              "showSymbolLogo": true, "isTransparent": false, "colorTheme": "dark", "locale": "tr"
+              "name": "FAVORİLER",
+              "symbols": [
+                { "name": "BINANCE:BTCUSDT", "displayName": "BTC" },
+                { "name": "BINANCE:ETHUSDT", "displayName": "ETH" },
+                { "name": "BINANCE:BNBUSDT", "displayName": "BNB" },
+                { "name": "BINANCE:SOLUSDT", "displayName": "SOL" },
+                { "name": "BINANCE:XRPUSDT", "displayName": "XRP" },
+                { "name": "BINANCE:AVAXUSDT", "displayName": "AVAX" },
+                { "name": "BINANCE:DOGEUSDT", "displayName": "DOGE" },
+                { "name": "BINANCE:PEPEUSDT", "displayName": "PEPE" }
+              ]
             }
-            </script>
-        </div>
+          ],
+          "showSymbolLogo": true, "isTransparent": false, "colorTheme": "dark", "locale": "tr"
+        }
+        </script>
     </div>
+</div>
 
-    <div id="page-list" class="page">
-        <div class="widget-box">
-            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
-            {
-              "width": "100%", "height": "100%",
-              "defaultColumn": "overview",
-              "screener_type": "crypto_mcap", 
-              "displayCurrency": "USD",
-              "market": "crypto",
-              "colorTheme": "dark",
-              "locale": "tr",
-              "isTransparent": false,
-              "showToolbar": true
-            }
-            </script>
-        </div>
+<div id="page-list" class="page">
+    <div class="widget-container">
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
+        {
+          "width": "100%", "height": "100%",
+          "defaultColumn": "overview",
+          "defaultScreen": "general",
+          "market": "crypto",
+          "showToolbar": true,
+          "colorTheme": "dark",
+          "locale": "tr",
+          "isTransparent": false
+        }
+        </script>
     </div>
+</div>
 
-    <div id="page-signals" class="page">
-        <div class="widget-box">
-            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js" async>
-            {
-              "colorTheme": "dark", "dateRange": "12M", "exchange": "BINANCE",
-              "showChart": true, "locale": "tr", "largeChartUrl": "", "isTransparent": false,
-              "width": "100%", "height": "100%"
-            }
-            </script>
-        </div>
+<div id="page-signals" class="page">
+    <div class="widget-container">
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js" async>
+        {
+          "colorTheme": "dark", "dateRange": "12M", "exchange": "BINANCE",
+          "showChart": true, "locale": "tr", "largeChartUrl": "", "isTransparent": false,
+          "width": "100%", "height": "100%"
+        }
+        </script>
     </div>
-
 </div>
 
 <div class="bottom-nav">
     <div class="nav-item active" onclick="nav('page-fav', this)">
-        <span class="nav-icon">⭐</span><span>FAVORİLER</span>
+        <span class="nav-icon">⭐</span>FAVORİLER
     </div>
     <div class="nav-item" onclick="nav('page-list', this)">
-        <span class="nav-icon">💎</span><span>TOP 200</span>
+        <span class="nav-icon">📋</span>TÜM LİSTE
     </div>
     <div class="nav-item" onclick="nav('page-signals', this)">
-        <span class="nav-icon">🚀</span><span>SİNYALLER</span>
+        <span class="nav-icon">⚡</span>SİNYALLER
     </div>
 </div>
 
 <script>
-    function nav(pageId, element) {
-        document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
-        document.getElementById(pageId).classList.add('active-page');
-        document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
-        element.classList.add('active');
+    function nav(id, btn) {
+        // Tüm sayfaları gizle
+        document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+        // Seçileni göster (block)
+        document.getElementById(id).style.display = 'block';
+        
+        // Buton renkleri
+        document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
     }
 </script>
 
