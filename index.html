@@ -2,21 +2,95 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Treader Pro Terminal - Search Engine</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treader Pro Terminal</title>
     <style>
         :root { --bg: #000000; --card: #131722; --accent: #2962ff; --text: #d1d4dc; --gray: #787b86; }
-        body { margin: 0; background-color: var(--bg); color: var(--text); font-family: -apple-system, system-ui, sans-serif; overflow: hidden; }
-        .app-header { padding: 12px; background: var(--card); border-bottom: 1px solid #333; text-align: center; font-weight: bold; font-size: 0.9em; color: var(--accent); position: sticky; top: 0; z-index: 1001; }
-        .app-content { height: calc(100vh - 110px); overflow-y: auto; -webkit-overflow-scrolling: touch; }
+        
+        /* Klavye açıldığında sayfanın bozulmaması için body ayarı */
+        body { 
+            margin: 0; 
+            background-color: var(--bg); 
+            color: var(--text); 
+            font-family: -apple-system, system-ui, sans-serif; 
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .app-header { 
+            padding: 12px; 
+            background: var(--card); 
+            border-bottom: 1px solid #333; 
+            text-align: center; 
+            font-weight: bold; 
+            font-size: 0.9em; 
+            color: var(--accent); 
+        }
+
+        /* İçerik alanını kaydırılabilir yapıyoruz ki klavye gelince yazı yazılabilsin */
+        .app-content { 
+            flex: 1;
+            overflow-y: auto; 
+            padding-bottom: 80px;
+            -webkit-overflow-scrolling: touch; 
+        }
+
         .page { display: none; padding: 5px; }
         .active-page { display: block; }
-        .bottom-nav { position: fixed; bottom: 0; width: 100%; height: 60px; background: var(--card); display: flex; border-top: 1px solid #333; z-index: 1000; }
-        .nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 0.6em; color: var(--gray); cursor: pointer; }
+
+        .bottom-nav { 
+            position: fixed; 
+            bottom: 0; 
+            width: 100%; 
+            height: 65px; 
+            background: var(--card); 
+            display: flex; 
+            border-top: 1px solid #333; 
+            z-index: 2000; 
+        }
+
+        .nav-item { 
+            flex: 1; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 0.65em; 
+            color: var(--gray); 
+        }
         .nav-item.active { color: var(--accent); font-weight: bold; }
-        .nav-icon { font-size: 1.3em; margin-bottom: 2px; }
-        .section-title { padding: 10px; font-size: 0.75em; color: var(--accent); background: #1e222d; margin: 10px 0 5px 0; border-radius: 4px; font-weight: bold; display: flex; align-items: center; gap: 5px; }
-        .widget-box { background: var(--card); border-radius: 8px; margin-bottom: 15px; overflow: hidden; border: 1px solid #222; }
+        .nav-icon { font-size: 1.4em; margin-bottom: 2px; }
+
+        .section-title { 
+            padding: 10px; 
+            font-size: 0.75em; 
+            color: var(--accent); 
+            background: #1e222d; 
+            margin: 10px 0 5px 0; 
+            border-radius: 4px; 
+            font-weight: bold; 
+        }
+
+        /* Arama kutusu için özel konteyner - tıklanabilirliği artırır */
+        .search-container {
+            background: var(--card);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            border: 1px solid var(--accent);
+            height: 180px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .widget-box { 
+            background: var(--card); 
+            border-radius: 8px; 
+            margin-bottom: 15px; 
+            overflow: hidden; 
+            border: 1px solid #222; 
+        }
     </style>
 </head>
 <body>
@@ -25,8 +99,8 @@
 
 <div class="app-content">
     <div id="page-home" class="page active-page">
-        <div class="section-title">🔍 SEMBOL ARA (HİSSE, COIN, ENDEKS)</div>
-        <div class="widget-box" style="height: 180px;">
+        <div class="section-title">🔍 SEMBOL ARA (HİSSE VEYA COIN)</div>
+        <div class="search-container">
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-search.js" async>
             {
               "width": "100%",
@@ -38,8 +112,8 @@
             </script>
         </div>
 
-        <div class="section-title">🏆 BİST 30 - KRİTİK TAKİP</div>
-        <div class="widget-box" style="height: 400px;">
+        <div class="section-title">🏆 BİST 30 - ANLIK DURUM</div>
+        <div class="widget-box" style="height: 450px;">
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
             { "width": "100%", "height": "100%", "defaultColumn": "overview", "market": "turkey", "symbols": { "tickers": [
                 "BIST:THYAO", "BIST:AKBNK", "BIST:EREGL", "BIST:GARAN", "BIST:KCHOL", "BIST:SISE", "BIST:TUPRS", "BIST:ASELS"
@@ -67,13 +141,13 @@
     </div>
 
     <div id="page-signals" class="page">
-        <div class="section-title">⚡ ANİ HAREKETLER VE TEKNİK ANALİZ</div>
-        <div style="height: 300px; margin-bottom: 10px;">
+        <div class="section-title">⚡ %5 ÜZERİ HAREKETLER</div>
+        <div style="height: 350px; margin-bottom: 10px;">
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js" async>
             { "colorTheme": "dark", "exchange": "BIST", "width": "100%", "height": "100%", "locale": "tr" }
             </script>
         </div>
-        <div style="height: 300px;">
+        <div style="height: 350px;">
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js" async>
             { "colorTheme": "dark", "exchange": "USDT", "width": "100%", "height": "100%", "locale": "tr" }
             </script>
@@ -86,7 +160,7 @@
         <span class="nav-icon">🏠</span><span>ANA SAYFA</span>
     </div>
     <div class="nav-item" onclick="nav('page-bist100', this)">
-        <span class="nav-icon">📊</span><span>BİST 100</span>
+        <span class="nav-icon">📈</span><span>BİST 100</span>
     </div>
     <div class="nav-item" onclick="nav('page-crypto', this)">
         <span class="nav-icon">₿</span><span>KRİPTO</span>
